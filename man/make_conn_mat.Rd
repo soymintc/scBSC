@@ -19,11 +19,7 @@ A list containing $barcodes_in_tissue (barcodes of spatial cells with 'tissue=TR
 This function calculates the connectivity of a spatial cell to other cells.
 }
 \examples{
-devtools::install_github('satijalab/seurat-data')
-SeuratData::InstallData("stxBrain")
-brain <- SeuratData::LoadData("stxBrain", type = "anterior1")
-brain <- Seurat::SCTransform(brain, assay="Spatial", verbose=T, method="poisson") # from Seurat
-conn_mat <- make_conn_mat(brain) # make connectivity matrix
+conn_mat <- make_conn_mat(brain) # brain is a Seurat object
 feature1 <- 'Gpr88'
 feature2 <- 'Penk'
 bsc = calc_bsc(feature1, feature2, brain, conn_mat)

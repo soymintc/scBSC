@@ -5,14 +5,11 @@
 #' @param sdata Seurat formatted spatial 10X scRNA expression data
 #' @param verbose Print intermediate value checks as stderr()
 #' @return A list containing $barcodes_in_tissue (barcodes of spatial cells with 'tissue=TRUE'), $nbarcodes_in_tissue (length of barcodes_in_tissue), $C (raw connectivity/adjacency matrix), $W (row-sum divided connectivity matrix), $L_estimate_divR (L estimate, divided by Pearson's R (used later))
-#' @importFrom Matrix Seurat SeuratData dplyr devtools
+#' @import Matrix
+#' @import dplyr
 #' @export
 #' @examples
-#' devtools::install_github('satijalab/seurat-data')
-#' SeuratData::InstallData("stxBrain")
-#' brain <- SeuratData::LoadData("stxBrain", type = "anterior1")
-#' brain <- Seurat::SCTransform(brain, assay="Spatial", verbose=T, method="poisson") # from Seurat
-#' conn_mat <- make_conn_mat(brain) # make connectivity matrix
+#' conn_mat <- make_conn_mat(brain) # brain is a Seurat object
 #' feature1 <- 'Gpr88'
 #' feature2 <- 'Penk'
 #' bsc = calc_bsc(feature1, feature2, brain, conn_mat)
@@ -34,7 +31,7 @@ make_conn_mat = function(sdata, verbose=F) { # input Seurat spatial data
   nbarcodes_in_tissue = length(barcodes_in_tissue)
   if (verbose) print(sprintf('nbarcodes_in_tissue: %d', nbarcodes_in_tissue))
 
-  C = Matrix::Matrix(nrow=nbarcodes_in_tissue, ncol=nbarcodes_in_tissue, data=0, sparse=T) # C: (sparse) connectivity matrix
+  C = Matrix(nrow=nbarcodes_in_tissue, ncol=nbarcodes_in_tissue, data=0, sparse=T) # C: (sparse) connectivity matrix
   if (verbose) print(sprintf('dim(C): %s', dim(C)))
   rownames(C) = barcodes_in_tissue
   colnames(C) = barcodes_in_tissue
