@@ -17,6 +17,10 @@
 #'   feature_i, feature_j, bsc$L_XX, bsc$L_YY, bsc$r_sm, bsc$r, bsc$L_XY)
 #' print(print_line)
 
+if(getRversion() >= "2.15.1")  {
+  utils::globalVariables(c("brain", "tissue")) # all the variables complained
+}
+
 make_conn_mat = function(sdata, verbose=F) { # input Seurat spatial data
   # Seurat - sdata@images$anterior1@coordinates format:
   #                    tissue row col imagerow imagecol

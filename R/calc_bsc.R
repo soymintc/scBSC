@@ -20,6 +20,10 @@
 #'   feature_i, feature_j, bsc$L_XX, bsc$L_YY, bsc$r_sm, bsc$r, bsc$L_XY)
 #' print(print_line)
 
+if(getRversion() >= "2.15.1")  {
+  utils::globalVariables(c("brain")) # all the variables complained
+}
+
 calc_bsc = function(feature1, feature2, sdata, conn_mat, assay='SCT') {
   # Set X, Y variables from two features
   # Seurat - sdata@assays$SCT@data: row=feature, col=cell matrix
