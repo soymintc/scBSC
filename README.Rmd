@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# scBSC
+# scBSC (single cell Bivariate Spatial Correlation)
 
 <!-- badges: start -->
 <!-- badges: end -->
