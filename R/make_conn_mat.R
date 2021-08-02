@@ -1,10 +1,20 @@
+if(getRversion() >= "2.15.1")  {
+  utils::globalVariables(c("brain", "tissue")) # all the variables complained
+}
+
 #' Returns a list of spatial connectivity matrix variables (C, W)
 #' according to Lee S. J Geograph Syst (2001) 3:369-385.
 #'
-#' This function calculates the connectivity of a spatial cell to other cells.
+#' @title Make connectivity matrix
+#' @name make_conn_mat
+#' @description This function calculates the connectivity of a spatial cell to other cells.
 #' @param sdata Seurat formatted spatial 10X scRNA expression data
 #' @param verbose Print intermediate value checks as stderr()
-#' @return A list containing $barcodes_in_tissue (barcodes of spatial cells with 'tissue=TRUE'), $nbarcodes_in_tissue (length of barcodes_in_tissue), $C (raw connectivity/adjacency matrix), $W (row-sum divided connectivity matrix), $L_estimate_divR (L estimate, divided by Pearson's R (used later))
+#' @return A list containing $barcodes_in_tissue (barcodes of spatial cells with 'tissue=TRUE'),
+#' $nbarcodes_in_tissue (length of barcodes_in_tissue),
+#' $C (raw connectivity/adjacency matrix),
+#' $W (row-sum divided connectivity matrix),
+#' $L_estimate_divR (L estimate, divided by Pearson's R (used later))
 #' @import Matrix
 #' @import dplyr
 #' @export
@@ -16,10 +26,6 @@
 #' print_line = sprintf("%s\t%s\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f",
 #'   feature_i, feature_j, bsc$L_XX, bsc$L_YY, bsc$r_sm, bsc$r, bsc$L_XY)
 #' print(print_line)
-
-if(getRversion() >= "2.15.1")  {
-  utils::globalVariables(c("brain", "tissue")) # all the variables complained
-}
 
 make_conn_mat = function(sdata, verbose=F) { # input Seurat spatial data
   # Seurat - sdata@images$anterior1@coordinates format:

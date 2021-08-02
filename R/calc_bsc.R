@@ -1,13 +1,23 @@
+if(getRversion() >= "2.15.1")  {
+  utils::globalVariables(c("brain", "tissue")) # all the variables complained
+}
+
 #' Returns a list of bivariate spatial correlation statistics
 #' according to Lee S. J Geograph Syst (2001) 3:369-385.
 #'
-#' This function converts input temperatures in Fahrenheit to Celsius.
+#' @title Calculate Bivariate Spatial Correlation
+#' @name calc_bsc
+#' @description This function converts input temperatures in Fahrenheit to Celsius.
 #' @param feature1 a gene symbol as in Seurat object
 #' @param feature2 another gene symbol as in Seurat object
 #' @param sdata Seurat formatted spatial 10X scRNA expression data
 #' @param conn_mat connectivity matrix (conn_mat) from make_conn_mat
 #' @param assay default to 'SCT' but can be 'Spatial' (raw) or 'SCT'
-#' @return A list containing $r (Pearson's r), $r_sm (spatially smoothened r), $L_XX (clustering factor of feature1), $L_YY (clustering factor of feature2), $L_XY (L_X,Y bivariate spatial correlation from)
+#' @return A list containing $r (Pearson's r),
+#' $r_sm (spatially smoothened r),
+#' $L_XX (clustering factor of feature1),
+#' $L_YY (clustering factor of feature2),
+#' $L_XY (L_X,Y bivariate spatial correlation from)
 #' @import Matrix
 #' @import dplyr
 #' @export
@@ -19,10 +29,6 @@
 #' print_line = sprintf("%s\t%s\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f",
 #'   feature_i, feature_j, bsc$L_XX, bsc$L_YY, bsc$r_sm, bsc$r, bsc$L_XY)
 #' print(print_line)
-
-if(getRversion() >= "2.15.1")  {
-  utils::globalVariables(c("brain")) # all the variables complained
-}
 
 calc_bsc = function(feature1, feature2, sdata, conn_mat, assay='SCT') {
   # Set X, Y variables from two features
