@@ -2,3 +2,7 @@
 
 export(calc_bsc)
 export(make_conn_mat)
+importFrom(Matrix,Seurat)
+importFrom(Matrix,SeuratData)
+importFrom(Matrix,devtools)
+importFrom(Matrix,dplyr)

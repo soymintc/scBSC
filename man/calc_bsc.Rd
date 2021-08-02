@@ -25,7 +25,10 @@ A list containing $r (Pearson's r), $r_sm (spatially smoothened r), $L_XX (clust
 This function converts input temperatures in Fahrenheit to Celsius.
 }
 \examples{
-brain <- SCTransform(brain, assay="Spatial", verbose=T, method="poisson") # from Seurat
+devtools::install_github('satijalab/seurat-data')
+SeuratData::InstallData("stxBrain")
+brain <- SeuratData::LoadData("stxBrain", type = "anterior1")
+brain <- Seurat::SCTransform(brain, assay="Spatial", verbose=T, method="poisson") # from Seurat
 conn_mat <- make_conn_mat(brain) # make connectivity matrix
 feature1 <- 'Gpr88'
 feature2 <- 'Penk'

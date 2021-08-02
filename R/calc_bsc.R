@@ -8,9 +8,13 @@
 #' @param conn_mat connectivity matrix (conn_mat) from make_conn_mat
 #' @param assay default to 'SCT' but can be 'Spatial' (raw) or 'SCT'
 #' @return A list containing $r (Pearson's r), $r_sm (spatially smoothened r), $L_XX (clustering factor of feature1), $L_YY (clustering factor of feature2), $L_XY (L_X,Y bivariate spatial correlation from)
+#' @importFrom Matrix Seurat SeuratData dplyr devtools
 #' @export
 #' @examples
-#' brain <- SCTransform(brain, assay="Spatial", verbose=T, method="poisson") # from Seurat
+#' devtools::install_github('satijalab/seurat-data')
+#' SeuratData::InstallData("stxBrain")
+#' brain <- SeuratData::LoadData("stxBrain", type = "anterior1")
+#' brain <- Seurat::SCTransform(brain, assay="Spatial", verbose=T, method="poisson") # from Seurat
 #' conn_mat <- make_conn_mat(brain) # make connectivity matrix
 #' feature1 <- 'Gpr88'
 #' feature2 <- 'Penk'

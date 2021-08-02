@@ -5,8 +5,12 @@
 #' @param sdata Seurat formatted spatial 10X scRNA expression data
 #' @param verbose Print intermediate value checks as stderr()
 #' @return A list containing $barcodes_in_tissue (barcodes of spatial cells with 'tissue=TRUE'), $nbarcodes_in_tissue (length of barcodes_in_tissue), $C (raw connectivity/adjacency matrix), $W (row-sum divided connectivity matrix), $L_estimate_divR (L estimate, divided by Pearson's R (used later))
+#' @importFrom Matrix Seurat SeuratData dplyr devtools
 #' @export
 #' @examples
+#' devtools::install_github('satijalab/seurat-data')
+#' SeuratData::InstallData("stxBrain")
+#' brain <- SeuratData::LoadData("stxBrain", type = "anterior1")
 #' brain <- Seurat::SCTransform(brain, assay="Spatial", verbose=T, method="poisson") # from Seurat
 #' conn_mat <- make_conn_mat(brain) # make connectivity matrix
 #' feature1 <- 'Gpr88'
