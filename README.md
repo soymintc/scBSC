@@ -60,5 +60,7 @@ the following result.
 
 ``` r
 SpatialFeaturePlot(brain, features = c("Vxn", "Dkk3"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
-![Expression between two genes](figures/Vxn_Dkk3.png?raw=true "Expression of Vxn and Dkk3")
 ```
+
+![Expression between two
+genes](figures/Vxn_Dkk3.png?raw=true "Expression of Vxn and Dkk3")
