@@ -17,3 +17,5 @@ Imports:
     devtools,
     dplyr,
     Matrix
+URL: https://github.com/soymintc/scBSC
+BugReports: https://github.com/soymintc/scBSC/issues
