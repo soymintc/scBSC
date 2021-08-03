@@ -32,6 +32,8 @@ The following calculates spatial correlation between expression of two
 genes, Penk and Cck, from a Seurat-format mouse brain spatial scRNA-seq
 data from Visium 10x.
 
+#### Using pre-made SeuratData
+
 ``` r
 # Import libraries
 library(Seurat)
@@ -55,12 +57,20 @@ print_ <- sprintf("%.3f %.3f %.3f %.3f %.3f",
 print(print_) # result: 0.869 0.865 -0.809 -0.729 -0.702
 ```
 
+#### Using Visium 10x data, imported by Seurat Load10X\_Spatial
+
 Of course scBSC also supports your own spatial scRNA-seq, as long as the
 data is in Seurat spatial object format. Link to raw data: [Visium 10x
 Mouse Brain Serial
 Section](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.1.0/V1_Mouse_Brain_Sagittal_Anterior)
 
 ``` r
+# Import libraries
+library(Seurat)
+library(SeuratData)
+library(scBSC)
+
+# Import Visium 10x data using Seurat
 setwd('~/path/to/mouse_brain_data')
 # Use Load10X_Spatial to load data from the following file structure.
 # Data used was Visium 10x Mouse Brain Serial Section 1 (Anterior-Sagittal)
