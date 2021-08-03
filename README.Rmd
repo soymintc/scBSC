@@ -66,6 +66,8 @@ Plotting the relative gene expression between the two genes will show the follow
 Below includes a highly negative, highly positive, and close-to-zero cases.
 ```r
 SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
+SpatialFeaturePlot(brain, features = c("Gpr88", "Ppp1r1b"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
+SpatialFeaturePlot(brain, features = c("Rpl34", "Ptn"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
 ```
 ![Expression between two genes](figures/Lxy_negative.png?raw=true "Highly negative Lxy case")
 ![Expression between two genes](figures/Lxy_positive.png?raw=true "Highly positive Lxy case")

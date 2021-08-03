@@ -62,6 +62,8 @@ and close-to-zero cases.
 
 ``` r
 SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
+SpatialFeaturePlot(brain, features = c("Gpr88", "Ppp1r1b"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
+SpatialFeaturePlot(brain, features = c("Rpl34", "Ptn"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
 ```
 
 ![Expression between two
