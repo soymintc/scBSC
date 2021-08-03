@@ -6,9 +6,10 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-scBSC helps users calculate bivariate spatial correlation statistics as
-from [Lee S., J Geography Syst
-(2001)](https://link.springer.com/article/10.1007/s101090100064).
+scBSC allows users calculate bivariate spatial correlation statistics as
+applied from [Lee S., J Geography Syst
+(2001)](https://link.springer.com/article/10.1007/s101090100064) to this
+wonderful spatial single cell RNA-seq domain.
 
 ## Installation
 
