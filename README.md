@@ -9,7 +9,7 @@
 scBSC allows users calculate bivariate spatial correlation statistics as
 applied from [Lee S., J Geography Syst
 (2001)](https://link.springer.com/article/10.1007/s101090100064) to this
-wonderful spatial single cell RNA-seq domain.
+wonderful spatial single cell RNA-Seq domain.
 
 ## Installation
 
@@ -76,16 +76,16 @@ setwd('/path/to/mouse_brain_data')
 # Data used was Visium 10x Mouse Brain Serial Section 1 (Anterior-Sagittal)
 # anterior1 (directory under /path/to/mouse_brain_data; any name would suffice)
 # ├── filtered_feature_bc_matrix
-# │   ├── barcodes.tsv.gz
-# │   ├── features.tsv.gz
-# │   └── matrix.mtx.gz
-# ├── filtered_feature_bc_matrix.h5
+# │   ├── barcodes.tsv.gz # cell barcodes
+# │   ├── features.tsv.gz # gene info
+# │   └── matrix.mtx.gz # gene count per cell
+# ├── filtered_feature_bc_matrix.h5 # [req] sparse matrix including the info above
 # └── spatial
 #     ├── aligned_fiducials.jpg
 #     ├── detected_tissue_image.jpg
 #     ├── scalefactors_json.json # [req] high -> low-res image scaling info
 #     ├── tissue_hires_image.png
-#     ├── tissue_lowres_image.png # [req]
+#     ├── tissue_lowres_image.png # [req] 
 #     └── tissue_positions_list.csv # [req] the coordinates for each spot
 brain <- Load10X_Spatial(data.dir="./anterior1",
                          filename="filtered_feature_bc_matrix.h5",
@@ -131,7 +131,7 @@ SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 
 ```
 
 ![Expression between two
-genes](figures/Lxy_negative.png?raw=true "Highly negative spatial correlation")
+genes](man/figures/README-1.png?raw=true "Highly positive spatial correlation")
 
 ``` r
 # Highly negative spatial correlation with Lxy 0.869, Lyy 0.864, rsm 0.936, r 0.855, Lxy 0.813
@@ -139,7 +139,7 @@ SpatialFeaturePlot(brain, features = c("Gpr88", "Ppp1r1b"), ncol = 2, alpha = c(
 ```
 
 ![Expression between two
-genes](figures/Lxy_positive.png?raw=true "Highly positive spatial correlation")
+genes](man/figures/README-2.png?raw=true "Highly negative spatial correlation")
 
 ``` r
 # Close-to-zero spatial correlation with Lxy 0.461, Lyy 0.569, rsm 0.075, r 0.059, Lxy 0.038
@@ -147,4 +147,4 @@ SpatialFeaturePlot(brain, features = c("Rpl34", "Ptn"), ncol = 2, alpha = c(0.1,
 ```
 
 ![Expression between two
-genes](figures/Lxy_neutral.png?raw=true "Close-to-zero spatial correlation")
+genes](man/figures/README-3.png?raw=true "Close-to-zero spatial correlation")

@@ -1,5 +1,5 @@
 Package: scBSC
-Title: Bivariate Spatial Correlation for Spatial Single Cell RNA-seq
+Title: Bivariate Spatial Correlation for Spatial Single Cell RNA-Seq
 Version: 0.1.2
 Authors@R: 
     person(given = "Seongmin",
