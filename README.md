@@ -61,7 +61,7 @@ the following result. Below includes a highly negative, highly positive,
 and close-to-zero Lxy cases.
 
 ``` r
-# Example with Lxy 0.869, Lyy 0.865, rsm -0.809, r -0.729, Lxy -0.702
+# Highly positive spatial correlation example with Lxy 0.869, Lyy 0.865, rsm -0.809, r -0.729, Lxy -0.702
 SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
 ```
 
@@ -69,7 +69,7 @@ SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 
 genes](figures/Lxy_negative.png?raw=true "Highly negative spatial correlation")
 
 ``` r
-# Example with Lxy 0.869, Lyy 0.864, rsm 0.936, r 0.855, Lxy 0.813
+# Highly negative spatial correlation with Lxy 0.869, Lyy 0.864, rsm 0.936, r 0.855, Lxy 0.813
 SpatialFeaturePlot(brain, features = c("Gpr88", "Ppp1r1b"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
 ```
 
@@ -77,7 +77,7 @@ SpatialFeaturePlot(brain, features = c("Gpr88", "Ppp1r1b"), ncol = 2, alpha = c(
 genes](figures/Lxy_positive.png?raw=true "Highly positive spatial correlation")
 
 ``` r
-# Example with Lxy 0.461, Lyy 0.569, rsm 0.075, r 0.059, Lxy 0.038
+# Close-to-zero spatial correlation with Lxy 0.461, Lyy 0.569, rsm 0.075, r 0.059, Lxy 0.038
 SpatialFeaturePlot(brain, features = c("Rpl34", "Ptn"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
 ```
 
