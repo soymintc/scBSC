@@ -131,7 +131,7 @@ SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 
 ```
 
 ![Expression between two
-genes](figures/Lxy_negative.png?raw=true "Highly negative spatial correlation")
+genes](figures/Lxy_positive.png?raw=true "Highly positive spatial correlation")
 
 ``` r
 # Highly negative spatial correlation with Lxy 0.869, Lyy 0.864, rsm 0.936, r 0.855, Lxy 0.813
@@ -139,7 +139,7 @@ SpatialFeaturePlot(brain, features = c("Gpr88", "Ppp1r1b"), ncol = 2, alpha = c(
 ```
 
 ![Expression between two
-genes](figures/Lxy_positive.png?raw=true "Highly positive spatial correlation")
+genes](figures/Lxy_negative.png?raw=true "Highly negative spatial correlation")
 
 ``` r
 # Close-to-zero spatial correlation with Lxy 0.461, Lyy 0.569, rsm 0.075, r 0.059, Lxy 0.038
