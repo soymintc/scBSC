@@ -7,7 +7,7 @@
 <!-- badges: end -->
 
 scBSC help users calculate bivariate spatial correlation statistics as
-from [Lee S. J Geography Syst
+from [Lee S., J Geography Syst
 (2001)](https://link.springer.com/article/10.1007/s101090100064).
 
 ## Installation
@@ -36,7 +36,6 @@ scRNA-seq data from Visium 10x.
 # Import libraries
 library(Seurat)
 library(SeuratData)
-library(dplyr)
 library(scBSC)
 
 # Import Seurat-format mouse brain data
@@ -52,7 +51,7 @@ print_ <- sprintf("%.3f %.3f %.3f %.3f %.3f",
   bsc$L_YY, # How well is Cck expression spatially clustered
   bsc$r_sm, # Correlation between spatially smoothened expression of two genes
   bsc$r, # Correlation between expression of two genes
-  bsc$L_XY) # Bivariate spatial correlation (clustering effect + expression correlation)
+  bsc$L_XY) # Bivariate spatial correlation (clustering effect & expression correlation)
 print(print_) # result: 0.869 0.865 -0.809 -0.729 -0.702
 ```
 
