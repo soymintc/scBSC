@@ -6,7 +6,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-scBSC help users calculate bivariate spatial correlation statistics as
+scBSC helps users calculate bivariate spatial correlation statistics as
 from [Lee S., J Geography Syst
 (2001)](https://link.springer.com/article/10.1007/s101090100064).
 
@@ -29,8 +29,8 @@ devtools::install_github("soymintc/scBSC")
 ## Example
 
 The following calculates spatial correlation between expression of two
-genes, Gpr88 and Penk, from a Seurat-format mouse brain spatial
-scRNA-seq data from Visium 10x.
+genes, Penk and Cck, from a Seurat-format mouse brain spatial scRNA-seq
+data from Visium 10x.
 
 ``` r
 # Import libraries
