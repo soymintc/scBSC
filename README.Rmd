@@ -68,14 +68,13 @@ Link to raw data: [Visium 10x Mouse Brain Serial Section](https://support.10xgen
 ```R
 # Import libraries
 library(Seurat)
-library(SeuratData)
 library(scBSC)
 
 # Import Visium 10x data using Seurat
-setwd('~/path/to/mouse_brain_data')
+setwd('/path/to/mouse_brain_data')
 # Use Load10X_Spatial to load data from the following file structure.
 # Data used was Visium 10x Mouse Brain Serial Section 1 (Anterior-Sagittal)
-# data directory (e.g. "anterior1" as written below)
+# anterior1 (directory under /path/to/mouse_brain_data; any name would suffice)
 # ├── filtered_feature_bc_matrix
 # │   ├── barcodes.tsv.gz
 # │   ├── features.tsv.gz
