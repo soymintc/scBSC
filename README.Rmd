@@ -52,8 +52,8 @@ brain <- LoadData("stxBrain", type = "anterior1")
 brain <- SCTransform(brain, assay = "Spatial", verbose = FALSE)
 
 # Calculate bivariate spatial correlation statistics
-conn_mat <- make_conn_mat(brain)
-bsc <- calc_bsc("Penk", "Cck", brain, conn_mat)
+conn_mat <- make_conn_mat(brain) # creating connectivity matrix; only required once per dataset
+bsc <- calc_bsc("Penk", "Cck", brain, conn_mat) # calculate statistics for any pair of genes in the data
 print_ <- sprintf("%.3f %.3f %.3f %.3f %.3f",
   bsc$L_XX, # How well is Penk expression spatially clustered
   bsc$L_YY, # How well is Cck expression spatially clustered
@@ -110,8 +110,8 @@ brain <- brain[!grepl("^Hb.*-", rownames(brain)), ] # filter Hemoglobin gene (op
 brain <- SCTransform(brain, assay = "Spatial", verbose = TRUE, method = "poisson")
 
 # Calculate bivariate spatial correlation statistics
-conn_mat <- make_conn_mat(brain)
-bsc <- calc_bsc("Penk", "Cck", brain, conn_mat)
+conn_mat <- make_conn_mat(brain) # creating connectivity matrix; only required once per dataset
+bsc <- calc_bsc("Penk", "Cck", brain, conn_mat) # calculate statistics for any pair of genes in the data
 print_ <- sprintf("%.3f %.3f %.3f %.3f %.3f",
   bsc$L_XX, # How well is Penk expression spatially clustered
   bsc$L_YY, # How well is Cck expression spatially clustered
