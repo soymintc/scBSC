@@ -7,7 +7,8 @@
 <!-- badges: end -->
 
 scBSC help users calculate bivariate spatial correlation statistics as
-from Lee S. J Geography Syst (2001).
+from [Lee S. J Geography Syst
+(2001)](https://link.springer.com/article/10.1007/s101090100064).
 
 ## Installation
 
@@ -45,22 +46,27 @@ brain <- SCTransform(brain, assay = "Spatial", verbose = FALSE)
 
 # Calculate bivariate spatial correlation statistics
 conn_mat <- make_conn_mat(brain)
-bsc <- calc_bsc("Vxn", "Dkk3", brain, conn_mat)
-print_line = sprintf("%.3f %.3f %.3f %.3f %.3f",
-  bsc$L_XX, # How well is Vxn expression spatially clustered
-  bsc$L_YY, # How well is Dkk3 expression spatially clustered
+bsc <- calc_bsc("Penk", "Cck", brain, conn_mat)
+print_ <- sprintf("%.3f %.3f %.3f %.3f %.3f",
+  bsc$L_XX, # How well is Penk expression spatially clustered
+  bsc$L_YY, # How well is Cck expression spatially clustered
   bsc$r_sm, # Correlation between spatially smoothened expression of two genes
   bsc$r, # Correlation between expression of two genes
   bsc$L_XY) # Bivariate spatial correlation (clustering effect + expression correlation)
-print(print_line) # result: 0.802 0.696 0.857 0.668 0.64
+print(print_) # result: 0.869 0.865 -0.809 -0.729 -0.702
 ```
 
 Plotting the relative gene expression between the two genes will show
-the following result.
+the following result. Below includes a highly negative, highly positive,
+and close-to-zero cases.
 
 ``` r
-SpatialFeaturePlot(brain, features = c("Vxn", "Dkk3"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
+SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
 ```
 
 ![Expression between two
-genes](figures/Vxn_Dkk3.png?raw=true "Expression of Vxn and Dkk3")
+genes](figures/Lxy_negative.png?raw=true "Highly negative Lxy case")
+![Expression between two
+genes](figures/Lxy_positive.png?raw=true "Highly positive Lxy case")
+![Expression between two
+genes](figures/Lxy_neutral.png?raw=true "Close-to-zero Lxy case")

@@ -1,7 +1,3 @@
-if(getRversion() >= "2.15.1")  {
-  utils::globalVariables(c("brain", "tissue")) # all the variables complained
-}
-
 #' Returns a list of bivariate spatial correlation statistics
 #' according to Lee S. J Geograph Syst (2001) 3:369-385.
 #'
@@ -21,15 +17,7 @@ if(getRversion() >= "2.15.1")  {
 #' @import Matrix
 #' @import dplyr
 #' @export
-#' @examples
-#' conn_mat <- make_conn_mat(brain) # brain is a Seurat object
-#' feature1 <- 'Gpr88'
-#' feature2 <- 'Penk'
-#' bsc = calc_bsc(feature1, feature2, brain, conn_mat)
-#' print_line = sprintf("%s\t%s\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f",
-#'   feature_i, feature_j, bsc$L_XX, bsc$L_YY, bsc$r_sm, bsc$r, bsc$L_XY)
-#' print(print_line)
-
+#' @examples # Refer to https://github.com/soymintc/scBSC
 calc_bsc = function(feature1, feature2, sdata, conn_mat, assay='SCT') {
   # Set X, Y variables from two features
   # Seurat - sdata@assays$SCT@data: row=feature, col=cell matrix
