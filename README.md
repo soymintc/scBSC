@@ -127,7 +127,7 @@ and close-to-zero Lxy cases.
 
 ``` r
 # Highly positive spatial correlation example with Lxx 0.869, Lyy 0.864, rsm 0.936, r 0.855, Lxy 0.813
-SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
+SpatialFeaturePlot(brain, features = c("Gpr88", "Ppp1r1b"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
 ```
 
 ![Expression between two
@@ -135,7 +135,7 @@ genes](man/figures/README-1.png?raw=true "Highly positive spatial correlation")
 
 ``` r
 # Highly negative spatial correlation with Lxx 0.869, Lyy 0.865, rsm -0.809, r -0.729, Lxy -0.702
-SpatialFeaturePlot(brain, features = c("Gpr88", "Ppp1r1b"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
+SpatialFeaturePlot(brain, features = c("Penk", "Cck"), ncol = 2, alpha = c(0.1, 1), max.cutoff = 5)
 ```
 
 ![Expression between two
