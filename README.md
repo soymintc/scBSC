@@ -102,7 +102,7 @@ brain <- PercentageFeatureSet(brain, "^Hb.*-", col.name = "percent_hb")
 brain = brain[, brain$nFeature_Spatial > 500 &
                 brain$percent_mito < 25 &
                 brain$percent_hb < 20]
-brain <- brain[!grepl("Bl1", rownames(brain)), ] # filter Bc1
+brain <- brain[!grepl("Bc1", rownames(brain)), ] # filter Bc1
 brain <- brain[!grepl("^mt-", rownames(brain)), ] # filter Mitocondrial
 brain <- brain[!grepl("^Hb.*-", rownames(brain)), ] # filter Hemoglobin gene (optional if Hb genes needed)
 
