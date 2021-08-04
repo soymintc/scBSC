@@ -102,11 +102,13 @@ brain <- PercentageFeatureSet(brain, "^Hb.*-", col.name = "percent_hb")
 brain = brain[, brain$nFeature_Spatial > 500 &
                 brain$percent_mito < 25 &
                 brain$percent_hb < 20]
-brain <- brain[!grepl("Bc1", rownames(brain)), ] # filter Bl1
+brain <- brain[!grepl("Bl1", rownames(brain)), ] # filter Bc1
 brain <- brain[!grepl("^mt-", rownames(brain)), ] # filter Mitocondrial
 brain <- brain[!grepl("^Hb.*-", rownames(brain)), ] # filter Hemoglobin gene (optional if Hb genes needed)
 
-# Normalize, Find HVGs, Scale data
+# Normalize expression values by SCTransform
+# Required for later calculations based on assay="SCT"; uses brain@assays[["SCT"]]@data as default
+# Not required if the assay property in calc_bsc is to be changed to "Spatial" (then only requires brain@assays[["Spatial"]])
 brain <- SCTransform(brain, assay = "Spatial", verbose = TRUE, method = "poisson")
 
 # Calculate bivariate spatial correlation statistics

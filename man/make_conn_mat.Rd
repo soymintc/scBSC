@@ -4,10 +4,12 @@
 \alias{make_conn_mat}
 \title{Make connectivity matrix}
 \usage{
-make_conn_mat(sdata, verbose = F)
+make_conn_mat(sdata, orig.ident = NULL, verbose = F)
 }
 \arguments{
 \item{sdata}{Seurat formatted spatial 10X scRNA expression data}
+
+\item{orig.ident}{A unique orig.ident for creating connectivity matrix.}
 
 \item{verbose}{Print intermediate value checks as stderr()}
 }

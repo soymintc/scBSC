@@ -8,4 +8,8 @@
 
 # scBSC 0.1.2
 
-* Fixed examples to refer to github page and readme to include more figures
+* Fixed examples to refer to github page and readme to include more figures.
+
+# scBSC 0.1.3
+
+* Added class slot and list validations.

@@ -16,6 +16,7 @@
 #' $L_XY (L_X,Y bivariate spatial correlation from)
 #' @import Matrix
 #' @import dplyr
+#' @import methods
 #' @export
 #' @examples # Refer to https://github.com/soymintc/scBSC
 calc_bsc = function(feature1, feature2, sdata, conn_mat, assay='SCT') {
@@ -23,6 +24,9 @@ calc_bsc = function(feature1, feature2, sdata, conn_mat, assay='SCT') {
   # Seurat - sdata@assays$SCT@data: row=feature, col=cell matrix
   # feature1 = 'Gpr88' # debug
   # feature2 = 'Penk' # debug
+  if (!.hasSlot(sdata, "assays")) stop("[ERROR] data class does not contain @assays")
+  if (is.null(sdata@assays[[assay]])) stop(paste("[ERROR] @assays do not contain", assay))
+  if (!.hasSlot(sdata@assays[[assay]], "data")) stop("[ERROR] data class does not contain @data")
   mrna = sdata@assays[[assay]]@data # default to assay='SCT'
   X_values = mrna[feature1, conn_mat$barcodes_in_tissue] # 1:X
   Y_values = mrna[feature2, conn_mat$barcodes_in_tissue] # 2:Y
